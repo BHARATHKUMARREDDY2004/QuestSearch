@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node server.js",
     "start-client": "node client/app.js",
-    "build": "cd frontend && npm install && npm run build"
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
