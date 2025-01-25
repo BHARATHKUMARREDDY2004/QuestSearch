@@ -6,7 +6,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "start-server": "concurrently -n \"BACKEND,CLIENT,FRONTEND\" -c \"blue,green,magenta\" \"nodemon server.js\" \"nodemon client/app.js\" \"cd frontend && npm run dev\""
+    "start": "concurrently -n \"BACKEND,CLIENT,FRONTEND\" -c \"blue,green,magenta\" \"nodemon server.js\" \"nodemon client/app.js\" \"cd frontend && npm run dev\""
   },
   "keywords": [],
   "author": "",
