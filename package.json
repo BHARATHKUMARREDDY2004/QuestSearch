@@ -9,7 +9,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "concurrently -n \"BACKEND,CLIENT,FRONTEND\" -c \"blue,green,magenta\" \"nodemon server.js\" \"nodemon client/app.js\" \"cd frontend && npm run dev\""
+    "start": "node server.js",
+    "start-client": "node client/app.js",
+    "build": "cd frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
