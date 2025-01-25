@@ -66,7 +66,7 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 lg:px-40">
+    <div className="min-h-screen bg-gray-100 lg:px-40 scroll-smooth">
       <div className="container mx-auto px-4 py-8">
         <main>
           <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Question Search</h1>
