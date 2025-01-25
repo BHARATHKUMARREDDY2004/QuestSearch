@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const questionSchema = require('../models/Question').schema;
+const questionSchema = require('../models/question').schema;
 const Questions = mongoose.connection.useDb('SpeakX').model('QuestionBase', questionSchema);
 
 // Search questions with optional filters (search query and type)
