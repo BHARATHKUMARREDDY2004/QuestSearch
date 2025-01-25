@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package questsearch;
+
+// Message for the block structure (used in ANAGRAM and MCQ)
+message Block {
+  string text = 1;
+  bool showInOption = 2;
+  bool isAnswer = 3;
+}
+
+// Message for the option structure for MCQ
+message Option {
+  string text = 1;
+  bool isCorrectAnswer = 2;
+}
+
+// Message for the question structure
+message Question {
+  string id = 1;
+  string type = 2;
+  string anagramType = 3;
+  repeated Block blocks = 4;
+  repeated Option options = 5;
+  string siblingId = 6;
+  string solution = 7;
+  string title = 8;
+}
+
+
+// Request message for a search query
+message SearchRequest {
+  string query = 1;
+  string type = 2;
+  int32 page = 3;
+}
+
+// Response message for a search query result
+message SearchResponse {
+  repeated Question questions = 1;
+}
+
+// Service definition for the search API
+service QuestionService {
+  rpc getQuestions (SearchRequest) returns (SearchResponse);
+}
