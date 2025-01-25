@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import QuestionCard from "./QuestionCard";
+import Loader from "./Loader";
 
 function QuestionList({ query, page, type }) {
   const [questions, setQuestions] = useState([]);
@@ -29,9 +30,9 @@ function QuestionList({ query, page, type }) {
 
         const data = await response.json();
         setQuestions(data.questions);
-    } catch (error) {
+      } catch (error) {
         console.error('Error fetching questions:', error.message);
-        throw error; 
+        setError("Failed to load questions. Please try again.");
       } finally {
         setLoading(false);
       }
@@ -40,14 +41,20 @@ function QuestionList({ query, page, type }) {
     loadQuestions();
   }, [query, page, type]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-  if (questions.length === 0) return <div>No questions found</div>;
+  if (loading) return <Loader />;
+  if (error) return <div className="text-red-500">{error}</div>;
+  if (questions.length === 0) return <div className="text-gray-600">No questions found</div>;
 
   return (
     <div className="space-y-4">
-      {questions.map((question) => (
-        <QuestionCard key={question.id} question={question} />
+      {questions.map((question, index) => (
+        <div
+          key={question.id}
+          className="opacity-0 translate-y-4 animate-fade-in"
+          style={{ animationDelay: `${index * 0.1}s` }}
+        >
+          <QuestionCard question={question} />
+        </div>
       ))}
     </div>
   );
