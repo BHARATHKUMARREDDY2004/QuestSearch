@@ -2,16 +2,11 @@
   "name": "question-search",
   "version": "1.0.0",
   "main": "server.js",
-  "workspaces": [
-    "frontend"
-  ],
   "directories": {
     "lib": "lib"
   },
-  "scripts": {
-    "start": "node server.js",
-    "start-client": "node client/app.js",
-    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+"scripts": {
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",

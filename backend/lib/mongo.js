@@ -11,5 +11,5 @@ mongoose
 
 mongoose.Promise = global.Promise;
 mongoose.connection.on("error", (err) => {
-  console.log(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
+  console.log(` 🚫 🚫 🚫 🚫 → ${err.message}`);
 });
